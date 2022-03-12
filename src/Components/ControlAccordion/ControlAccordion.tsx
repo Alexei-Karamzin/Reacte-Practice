@@ -4,12 +4,13 @@ import { Accordionbudy } from "./Accordionbudy";
 
 type PropsType = {
     title:string,
+    callback:()=>void
+    collapsed:boolean
 }
 
-export function Accordion(props:PropsType) {
+export function ControlAccordion(props:PropsType) {
 
-    let [collapsed, setCollapsed]=useState(false)
-    
+
     /*const onClickHandlerCollapsed = () => {
       return (
           setCollapsed(!collapsed)
@@ -18,8 +19,8 @@ export function Accordion(props:PropsType) {
 
     return (
         <div>
-            <AccordionTitle collapsed={collapsed} callback={setCollapsed} title={props.title}/>
-            {!collapsed && <Accordionbudy />}
+            <AccordionTitle collapsed={props.collapsed} callback={props.callback} title={props.title}/>
+            {!props.collapsed && <Accordionbudy />}
         </div>
     )
 }
