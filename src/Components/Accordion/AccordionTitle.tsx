@@ -1,6 +1,6 @@
 import React from "react";
 
-type PropsType = {
+export type PropsType = {
     title:string
     callback:(collapsed:boolean)=>void
     collapsed:boolean

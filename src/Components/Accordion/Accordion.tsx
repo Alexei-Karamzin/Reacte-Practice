@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { AccordionTitle } from "./AccordionTitle";
 import { Accordionbudy } from "./Accordionbudy";
 
-type PropsType = {
+export type PropsType = {
     title:string,
 }
 

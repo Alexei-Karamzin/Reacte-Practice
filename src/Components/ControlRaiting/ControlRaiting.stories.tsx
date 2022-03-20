@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {ControlRaiting, RaitingType} from "../ControlRaiting/ControlRaiting";
+import {ControlRaiting, RaitingType} from "./ControlRaiting";
 
 export default {
     title: 'Raiting',
