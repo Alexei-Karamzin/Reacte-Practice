@@ -5,7 +5,7 @@ import {Raiting} from "./Components/Raiting/Raiting";
 import {OnOff} from "./Components/OnOff/OnOff";
 import {ControlRaiting, RaitingType} from "./Components/ControlRaiting/ControlRaiting";
 import {ControlAccordion} from "./Components/ControlAccordion/ControlAccordion";
-import {UncontroledOnOff} from "./Components/UncontroledOnOff/UncontroledOnOff";
+import {ControledOnOff} from "./Components/ControledOnOff/ControledOnOff";
 
 //function decloration
 export function App() {
@@ -24,7 +24,7 @@ export function App() {
         <h1>Selfcontroled raiting</h1>
         <ControlRaiting callback={setRaitingValue} value={raitingValue}/>
         <ControlAccordion callback={()=>setAccordion(!accordion)} title={'Menu1'} collapsed={accordion}/>
-        <UncontroledOnOff state={on} callback={setOn}/>
+        <ControledOnOff state={on} callback={setOn}/>
     </div>
   );
 }

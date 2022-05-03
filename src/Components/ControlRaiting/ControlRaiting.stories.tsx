@@ -20,4 +20,3 @@ export const ChangeRaiting = () => {
     const [raiting, setRaiting] = useState<RaitingType>(3)
     return <ControlRaiting callback={setRaiting} value={raiting} />
 }
-

@@ -6,7 +6,7 @@ type PropsType = {
     callback:(state:boolean)=>void
 }
 
-export const UncontroledOnOff = (props:PropsType) => {
+export const ControledOnOff = (props:PropsType) => {
 
     const onStyle = {
         width:'50px',
