@@ -22,7 +22,7 @@ export function App() {
         <Raiting />
         <Accordion title={'Menu1'} />
         <h1>Selfcontroled raiting</h1>
-        <ControlRaiting callback={setRaitingValue} value={raitingValue}/>
+        <ControlRaiting callback={setRaitingValue} value={raitingValue} title={'ControlRaiting'}/>
         <ControlAccordion callback={()=>setAccordion(!accordion)} title={'Menu1'} collapsed={accordion}/>
         <ControledOnOff state={on} callback={setOn}/>
     </div>

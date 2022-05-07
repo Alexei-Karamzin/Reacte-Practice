@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
-import {action} from "@storybook/addon-actions";
+import React from 'react';
 import { Accordion } from './Accordion';
+import { Story } from '@storybook/react';
 
 export default {
-    title: 'Accordion',
+    title: 'new SB components/UncontroledAccordion',
     component: Accordion,
     parameters: {
         layout: 'fullscreen',
@@ -11,13 +11,22 @@ export default {
 }
 
 
-/*export const Accordion = () => <Accordion title={'dsds'} onChange={'dsds'}/>*/
 
 
-/*export const ModeChanging = () => {
-    const [value, setValue] = useState(true)
-    return <OnOff on={value} onChange={setValue()} />
-}*/
+type PropsType = {
+    title: string
+    /**
+     * Elements that are showed
+     */
+}
+
+const Template: Story<PropsType> = (args) => <Accordion {...args}/>
+
+export const UncontroledAccordion = Template.bind({})
+UncontroledAccordion.args = {
+    title: 'Menu1'
+}
+
 
 
 
