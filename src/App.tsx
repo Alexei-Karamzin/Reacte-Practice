@@ -6,6 +6,7 @@ import {OnOff} from "./Components/OnOff/OnOff";
 import {ControlRaiting, RaitingType} from "./Components/ControlRaiting/ControlRaiting";
 import {ControlAccordion} from "./Components/ControlAccordion/ControlAccordion";
 import {ControledOnOff} from "./Components/ControledOnOff/ControledOnOff";
+import ContainerControlInput from "./Components/ControlInput/ContainerControlInput";
 
 //function decloration
 export function App() {
@@ -25,6 +26,7 @@ export function App() {
         <ControlRaiting callback={setRaitingValue} value={raitingValue} title={'ControlRaiting'}/>
         <ControlAccordion callback={()=>setAccordion(!accordion)} title={'Menu1'} collapsed={accordion}/>
         <ControledOnOff state={on} callback={setOn}/>
+        <ContainerControlInput />
     </div>
   );
 }
