@@ -1,11 +1,23 @@
 import React from "react";
+import {ItemType} from "./ControlAccordion";
 
-export function Accordionbudy(){
+type PropsType = {
+    items: Array<ItemType>
+    onClickHandler: (e:number)=> void
+}
+
+export function AccordionBody(props: PropsType){
+
+
     return <div>
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {props.items.map( (el, index) =>
+                <li
+                    key={index}
+                    onClick={()=>props.onClickHandler(el.value)}
+                >
+                    {el.title}
+                </li> )}
         </ul>
     </div>
 }

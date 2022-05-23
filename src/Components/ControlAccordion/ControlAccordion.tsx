@@ -1,11 +1,18 @@
-import React, {useState} from "react";
+import React from "react";
 import { AccordionTitle } from "./AccordionTitle";
-import { Accordionbudy } from "./Accordionbudy";
+import { AccordionBody } from "./Accordionbudy";
 
 type PropsType = {
-    title:string,
+    title:string
     callback:()=>void
     collapsed:boolean
+    items: Array<ItemType>
+    onClickHandler: (e:number)=>void
+}
+
+export type ItemType = {
+    title: string
+    value: number
 }
 
 export function ControlAccordion(props:PropsType) {
@@ -19,8 +26,15 @@ export function ControlAccordion(props:PropsType) {
 
     return (
         <div>
-            <AccordionTitle collapsed={props.collapsed} callback={props.callback} title={props.title}/>
-            {!props.collapsed && <Accordionbudy />}
+            <AccordionTitle
+                collapsed={props.collapsed}
+                callback={props.callback}
+                title={props.title}
+            />
+            {!props.collapsed && <AccordionBody
+                items={props.items}
+                onClickHandler={props.onClickHandler}
+            />}
         </div>
     )
 }
