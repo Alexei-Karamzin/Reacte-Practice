@@ -1,13 +1,11 @@
-import React from "react";
-import { AccordionTitle } from "./AccordionTitle";
-import { AccordionBody } from "./Accordionbudy";
+import React, {useReducer} from "react";
+import {AccordionTitle} from "./AccordionTitle";
+import {AccordionBody} from "./Accordionbudy";
 
 type PropsType = {
-    title:string
-    callback:()=>void
-    collapsed:boolean
+    title: string
     items: Array<ItemType>
-    onClickHandler: (e:number)=>void
+    onClickHandler: (e: number) => void
 }
 
 export type ItemType = {
@@ -15,26 +13,37 @@ export type ItemType = {
     value: number
 }
 
-export function ControlAccordion(props:PropsType) {
+const TOGGLE_COLLAPSED = 'TOGGLE-COLLAPSED'
 
+export type ReducerActionType = {
+    type: 'TOGGLE-COLLAPSED'
+}
 
-    /*const onClickHandlerCollapsed = () => {
-      return (
-          setCollapsed(!collapsed)
-      )
-    }*/
+let reducer = (state: boolean, action: ReducerActionType) => {
+    switch (action.type) {
+        case TOGGLE_COLLAPSED:
+            return !state
+        throw new Error ('dont understand actions')
+    }
+    return state
+}
+
+export function ControlAccordion(props: PropsType) {
+
+    //let [collapsed, dispatch] = useState(false)
+
+    let [collapsed, dispatch] = useReducer(reducer, false)
 
     return (
         <div>
-            <AccordionTitle
-                collapsed={props.collapsed}
-                callback={props.callback}
-                title={props.title}
+            <AccordionTitle collapsed={collapsed}
+                            dispatch={() => dispatch({type: 'TOGGLE-COLLAPSED'})}
+                            title={props.title}
             />
-            {!props.collapsed && <AccordionBody
-                items={props.items}
-                onClickHandler={props.onClickHandler}
-            />}
+            {!collapsed &&
+                <AccordionBody items={props.items}
+                               onClickHandler={props.onClickHandler}
+                />}
         </div>
     )
 }

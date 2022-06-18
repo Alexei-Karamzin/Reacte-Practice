@@ -17,7 +17,7 @@ select {
     /* Personalize */
     flex: 1;
     padding: 0 1em;
-    color: #fff;
+    color: #000000;
     background-color: var(--darkgray);
     background-image: none;
     cursor: pointer;
@@ -57,7 +57,7 @@ select::-ms-expand {
 
 /* Other styles*/
 body {
-    color: #fff;
+    color: #000000;
     background: var(--background-gradient);
 }
 
@@ -71,5 +71,5 @@ a {
     text-decoration: none;
     padding: .25em;
     border-radius: .25em;
-    background: white;
+    background: #000000;
 }
