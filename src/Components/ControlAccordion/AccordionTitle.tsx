@@ -1,9 +1,10 @@
 import React from "react";
+import {initStateType} from "./AccordionReducer";
 
 type PropsType = {
-    title:string
+    collapsed: initStateType
     dispatch:()=>void
-    collapsed:boolean
+    title:string
 }
 
 export function AccordionTitle(props:PropsType){

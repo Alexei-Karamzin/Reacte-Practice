@@ -1,5 +1,5 @@
 import React from "react";
-import {ItemType} from "./ControlAccordion";
+import {ItemType} from "./AccordionReducer";
 
 type PropsType = {
     items: Array<ItemType>

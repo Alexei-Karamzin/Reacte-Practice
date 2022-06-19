@@ -1,6 +1,7 @@
 import React, {useReducer} from "react";
 import {AccordionTitle} from "./AccordionTitle";
 import {AccordionBody} from "./Accordionbudy";
+import {AccordionReducer, ItemType} from "./AccordionReducer";
 
 type PropsType = {
     title: string
@@ -8,39 +9,18 @@ type PropsType = {
     onClickHandler: (e: number) => void
 }
 
-export type ItemType = {
-    title: string
-    value: number
-}
-
-const TOGGLE_COLLAPSED = 'TOGGLE-COLLAPSED'
-
-export type ReducerActionType = {
-    type: 'TOGGLE-COLLAPSED'
-}
-
-let reducer = (state: boolean, action: ReducerActionType) => {
-    switch (action.type) {
-        case TOGGLE_COLLAPSED:
-            return !state
-        throw new Error ('dont understand actions')
-    }
-    return state
-}
 
 export function ControlAccordion(props: PropsType) {
 
-    //let [collapsed, dispatch] = useState(false)
-
-    let [collapsed, dispatch] = useReducer(reducer, false)
+    let [state, dispatch] = useReducer(AccordionReducer, {collapsed:false})
 
     return (
         <div>
-            <AccordionTitle collapsed={collapsed}
+            <AccordionTitle collapsed={state}
                             dispatch={() => dispatch({type: 'TOGGLE-COLLAPSED'})}
                             title={props.title}
             />
-            {!collapsed &&
+            {!state.collapsed &&
                 <AccordionBody items={props.items}
                                onClickHandler={props.onClickHandler}
                 />}
